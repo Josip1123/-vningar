@@ -2,6 +2,7 @@
 const guessInput = document.querySelector("#guess");
 const guessBtn = document.querySelector(".guess-btn");
 const textBox = document.querySelector(".text");
+const textBoxWrong = document.querySelector(".text-wrong");
 const warning = document.querySelector(".warning");
 const list = document.querySelector(".list");
 const secretNumber = Math.floor(Math.random() * 100) + 1;
@@ -30,26 +31,35 @@ function addToList() {
     list.appendChild(li);
 }
 
-function displayHighscore() {
+function displayAttempts() {
     highscoreText.innerHTML = `&#x1F973 &#x1F973 &#x1F973 &#x1F973 &#x1F973 
     Your highscore is ${attempts}!`;
+}
+
+function displayHighscore() {
+    highscoreText.innerHTML = `&#x1F973 &#x1F973 &#x1F973 &#x1F973 &#x1F973 
+    Your highscore is ${highscore}!`;
 }
 
 function checkForHighscore() {
     if (highscore == null) {
         localStorage.setItem("score", attempts);
-        displayHighscore();
+        displayAttempts();
     } else if (attempts <= highscore) {
         localStorage.setItem("score", attempts);
+        displayAttempts();
+    } else {
         displayHighscore();
     }
 }
 
 function disableInputs() {
-    guessInput.disabled = true;
-    guessBtn.disabled = true;
-    guessBtn.classList.add("disabled");
-    guessInput.classList.add("disabled");
+    const disabled = [guessBtn, guessInput];
+    disabled.forEach(item =>{
+        item.disabled = true;
+        item.classList.add("disabled");
+    }) 
+    textBoxWrong.innerHTML = "";
 }
 
 function checkIfCorrect() {
@@ -60,13 +70,11 @@ function checkIfCorrect() {
         You guessed the right number in ${attempts} attempt(s)!`;
         checkForHighscore();
         playAgainBtn.classList.add("show");
-        guessInput.disabled = true;
-        guessBtn.disabled = true;
         disableInputs();
     } else if (guessInput.value < secretNumber) {
-        textBox.innerHTML = "Try higher!";
+        textBoxWrong.innerHTML = "Try higher!";
     } else {
-        textBox.innerHTML = "Try lower!";
+        textBoxWrong.innerHTML = "Try lower!";
     }
 }
 
@@ -83,7 +91,7 @@ guessInput.addEventListener("keydown", (keypress) => {
 playAgainBtn.addEventListener("click", () => {
     window.location.reload();
     playAgainBtn.classList.remove("show");
-    guessBtn.classList.remove("disabled")
+    guessBtn.classList.remove("disabled");
 });
 
 window.onload = checkInput;

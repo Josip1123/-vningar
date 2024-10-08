@@ -29,6 +29,7 @@ function addToList() {
     const li = document.createElement("li");
     li.innerHTML = guessInput.value;
     list.appendChild(li);
+    attempts++;
 }
 
 function displayAttempts() {
@@ -60,10 +61,10 @@ function disableInputs() {
         item.classList.add("disabled");
     }) 
     textBoxWrong.innerHTML = "";
+    textBoxWrong.classList.add("hide");
 }
 
 function checkIfCorrect() {
-    attempts++;
     addToList();
     if (guessInput.value == secretNumber) {
         textBox.innerHTML = `Congratulations! 

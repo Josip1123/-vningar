@@ -75,8 +75,13 @@ input{
     width: 5rem;
     font-size: 3rem;
     text-align: center;
-    padding: .5rem 0 .5rem 1rem;
+    padding-inline: 1rem;
 }
+
+.btn, input, label {
+    cursor: pointer;
+}
+
 
 label {
     display: flex;
@@ -94,6 +99,9 @@ label {
     display: block;
 }
 
+.hide {
+    display: none;
+}
 
 .error {
     color: red;

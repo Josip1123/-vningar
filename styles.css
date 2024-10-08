@@ -17,6 +17,7 @@ body{
     }
     .highscore-text{
         width: 20ch;
+        margin: 0 auto;
     }
     li {
         font-size: 1.5rem;
@@ -27,9 +28,9 @@ body{
 
         font-size: 3rem;
         text-align: center;
-        span {
-            font-size: 2rem;
-        }
+    }
+    span {
+        font-size: 2rem;
     }
     h2 {
         font-size: 2rem;
@@ -42,14 +43,28 @@ body{
     }
     
 }
+
 .container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 500px;
+    justify-content: center;
+    max-width: 650px;
     margin: 0 auto;
     gap: 0;
+
 }
+@media (min-width: 768px) {
+    .container{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        max-width: 900px;
+    }
+}
+
 .btn{
     all: unset;
     padding: 1rem;
@@ -61,6 +76,7 @@ body{
     border-radius: var(--border-radius);
     background-color:var(--main-color);
     color: white;
+    margin: 0 auto;
 }
 
 .disabled{

@@ -5,40 +5,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Guess the number!</title>
         <link rel="stylesheet" href="styles.css" />
-
     </head>
     <body>
         <div class="container">
-            <label for="guess">
-                <h1>
-                    I Want To Play A Game! <br />
+            <div class="wrapper">
+                <label for="guess">
+                    <h1>
+                        I Want To Play A Game! <br />
 
-                    <span>
-                        Guess a number between
-                        <br />
-                        1 - 100
-                    </span>
-                </h1>
-                <input type="number" name="guess" id="guess" />
+                        <span> Guess a number between 1 - 100 </span>
+                    </h1>
+                    <input type="number" name="guess" id="guess" />
+                    <button
+                        class="guess-btn btn"
+                        type="submit"
+                        onsubmit="preventDefault"
+                    >
+                        Guess!
+                    </button>
+                </label>
+                <p class="warning error"></p>
+                <p class="text-wrong error"></p>
+                <p class="text correct"></p>
+                <p class="highscore-text correct"></p>
                 <button
-                    class="guess-btn btn"
-                    type="submit"
+                    class="play-again btn"
+                    type="reset"
                     onsubmit="preventDefault"
                 >
-                    Guess!
+                    Play Again
                 </button>
-            </label>
-            <p class="warning error"></p>
-            <p class="text-wrong error"></p>
-            <p class="text correct"></p>
-            <p class="highscore-text correct"></p>
-            <button
-                class="play-again btn"
-                type="reset"
-                onsubmit="preventDefault"
-            >
-                Play Again
-            </button>
+            </div>
             <ul class="list">
                 <h2>Your guesses:</h2>
             </ul>

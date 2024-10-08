@@ -16,7 +16,7 @@ function checkInput() {
     if (!guessInput.value) {
         warning.innerHTML = "Enter a number to begin!";
         guessBtn.disabled = true;
-    } else if (guessInput.value < 1 || guessInput.value > 100) {
+    } else if (Number(guessInput.value) < 1 || Number(guessInput.value) > 100) {
         warning.innerHTML = "Please enter a number between 1 and 100!";
         guessBtn.disabled = true;
     } else {
@@ -66,7 +66,7 @@ function disableInputs() {
 
 function checkIfCorrect() {
     addToList();
-    if (guessInput.value == secretNumber) {
+    if (Number(guessInput.value) === secretNumber) {
         textBox.innerHTML = `Congratulations! 
         You guessed the right number in ${attempts} attempt(s)!`;
         checkForHighscore();
@@ -98,3 +98,5 @@ window.onload = checkInput;
 // för debugging och att kunna fuska xD
 console.log(`Pssst! Your secret number is ${secretNumber}`);
 console.log(`Your highscore is ${highscore}`);
+
+

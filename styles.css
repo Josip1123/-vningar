@@ -61,7 +61,14 @@ body{
         justify-content: center;
         gap: 1rem;
         grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
         max-width: 900px;
+    }
+    .wrapper {
+        grid-row: 1/2;
+    }
+    .list {
+        grid-row: 1/-1;
     }
 }
 

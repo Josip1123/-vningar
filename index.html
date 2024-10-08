@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
         <label for="guess">
             <h1>I Want To Play A Game</h1>
             <input type="number" name="guess" id="guess">
-            <button class="guess-btn" type="submit" onsubmit="preventDefault">guess</button>
-            <p class="text"></p>
-            <p class="warning"></p>
-            <ul class="list">
-            </ul>
+            <button class="guess-btn btn" type="submit" onsubmit="preventDefault">Guess!</button>
         </label>
+        <p class="text correct"></p>
+        <p class="warning error"></p>
+        <p class="highscore-text correct"></p>
+        <button class="play-again btn" type="reset" onsubmit="preventDefault">Play Again</button>
+        <ul class="list">
+            <h2>Your guesses:</h2>
+        </ul>
+
+    </div>
         <script src="./guessing game ec utbildning.js"></script>
 </body>
 </html>

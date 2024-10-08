@@ -91,8 +91,6 @@ guessInput.addEventListener("keydown", (keypress) => {
 
 playAgainBtn.addEventListener("click", () => {
     window.location.reload();
-    playAgainBtn.classList.remove("show");
-    guessBtn.classList.remove("disabled");
 });
 
 window.onload = checkInput;
